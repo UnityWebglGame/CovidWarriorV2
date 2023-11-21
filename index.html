@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>新冠戰士</title>
+    <meta property="og:title" content="新冠戰士">
+    <meta property="og:image" content="TemplateData/unity-logo-dark.png">
+    <meta property="og:description" content="成為新冠戰士吧">
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
 </head>
@@ -19,18 +21,6 @@
     <div id="unity-warning"></div>
 </div>
 <script>
-    
-    window.addEventListener("load", function () {
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.getRegistrations().then(function (registrations) {
-                if (registrations.length > 0) {
-                    registrations.forEach(function (registration) {
-                        registration.unregister();
-                    });
-                }
-            });
-        }
-    });
 
     var container = document.querySelector("#unity-container");
     var canvas = document.querySelector("#unity-canvas");
@@ -74,7 +64,6 @@
         productName: "Moderna-CovidWarrior-V2",
         productVersion: "0.0.1",
         showBanner: unityShowBanner,
-
     };
 
     // By default Unity keeps WebGL canvas render target size matched with
@@ -107,6 +96,13 @@
         });
     };
     document.body.appendChild(script);
+
+
+    function UpdateMetadata(score) {
+        document.querySelector('meta[property="og:title"]').setAttribute('content', '你的分數：' + UTF8ToString(score));
+        document.querySelector('meta[property="og:image"]').setAttribute('content', 'TemplateData/unity-logo-light.png');
+    }
+
 </script>
 </body>
 </html>
