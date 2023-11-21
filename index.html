@@ -99,7 +99,7 @@
 
 
     function UpdateMetadata(score) {
-        document.querySelector('meta[property="og:title"]').setAttribute('content', '你的分數：' + UTF8ToString(score));
+        document.querySelector('meta[property="og:title"]').setAttribute('content', '你的分數：' + score);
         document.querySelector('meta[property="og:image"]').setAttribute('content', 'TemplateData/unity-logo-light.png');
     }
 
