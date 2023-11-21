@@ -104,6 +104,15 @@
         // document.querySelector('meta[property="og:image"]').setAttribute("content", "TemplateData/unity-logo-light.png');
     }
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const action = urlParams.get('action');
+
+    // 根据参数执行相应的操作
+    if (action === 'score') {
+        UpdateMetadata(1)
+    } 
+   
+
 </script>
 </body>
 </html>
