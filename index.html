@@ -54,15 +54,15 @@
     }
 
     var buildUrl = "Build";
-    var loaderUrl = buildUrl + "/CovidWarriorV2.loader.js?id=0.0.1";
+    var loaderUrl = buildUrl + "/CovidWarriorV2.loader.js?id=0.0.2";
     var config = {
-        dataUrl: buildUrl + "/CovidWarriorV2.data.unityweb?id=0.0.1",
-        frameworkUrl: buildUrl + "/CovidWarriorV2.framework.js.unityweb?id=0.0.1",
-        codeUrl: buildUrl + "/CovidWarriorV2.wasm.unityweb?id=0.0.1",
+        dataUrl: buildUrl + "/CovidWarriorV2.data.unityweb?id=0.0.2",
+        frameworkUrl: buildUrl + "/CovidWarriorV2.framework.js.unityweb?id=0.0.2",
+        codeUrl: buildUrl + "/CovidWarriorV2.wasm.unityweb?id=0.0.2",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Penpeer",
         productName: "Moderna-CovidWarrior-V2",
-        productVersion: "0.0.1",
+        productVersion: "0.0.2",
         showBanner: unityShowBanner,
     };
 
@@ -99,8 +99,9 @@
 
 
     function UpdateMetadata(score) {
-        document.querySelector('meta[property="og:title"]').setAttribute('content', '你的分數：' + score);
-        document.querySelector('meta[property="og:image"]').setAttribute('content', 'TemplateData/unity-logo-light.png');
+        console.log("Update");
+        document.querySelector('meta[property="og:title"]').setAttribute("content", "你的分數：");
+        // document.querySelector('meta[property="og:image"]').setAttribute("content", "TemplateData/unity-logo-light.png');
     }
 
 </script>
