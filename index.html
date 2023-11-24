@@ -29,7 +29,7 @@
         console.log("score input")
         UpdateMetadata(1)
     }
-    
+
     var container = document.querySelector("#unity-container");
     var canvas = document.querySelector("#unity-canvas");
     var loadingBar = document.querySelector("#unity-loading-bar");
@@ -44,9 +44,9 @@
         var div = document.createElement('div');
         div.innerHTML = msg;
         warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        if (type === 'error') div.style = 'background: red; padding: 10px;';
         else {
-            if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+            if (type === 'warning') div.style = 'background: yellow; padding: 10px;';
             setTimeout(function () {
                 warningBanner.removeChild(div);
                 updateBannerVisibility();
@@ -55,19 +55,20 @@
         updateBannerVisibility();
     }
 
+    // @formatter:off
     var buildUrl = "Build";
-    var loaderUrl = buildUrl + "/CovidWarriorV2.loader.js?id=0.0.2";
+    var loaderUrl = buildUrl + "/CovidWarriorV2.loader.js?id=0.0.4";
     var config = {
-        dataUrl: buildUrl + "/CovidWarriorV2.data.unityweb?id=0.0.2",
-        frameworkUrl: buildUrl + "/CovidWarriorV2.framework.js.unityweb?id=0.0.2",
-        codeUrl: buildUrl + "/CovidWarriorV2.wasm.unityweb?id=0.0.2",
+        dataUrl: buildUrl + "/CovidWarriorV2.data.unityweb?id=0.0.4",
+        frameworkUrl: buildUrl + "/CovidWarriorV2.framework.js.unityweb?id=0.0.4",
+        codeUrl: buildUrl + "/CovidWarriorV2.wasm.unityweb?id=0.0.4",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Penpeer",
         productName: "Moderna-CovidWarrior-V2",
-        productVersion: "0.0.2",
+        productVersion: "0.0.4",
         showBanner: unityShowBanner,
     };
-
+    // @formatter:on
 
     if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -78,6 +79,10 @@
         canvas.style.width = "100%";
         canvas.style.height = "100%";
     }
+
+    // @formatter:off
+    // @formatter:on
+
     loadingBar.style.display = "block";
 
     var script = document.createElement("script");
@@ -93,13 +98,16 @@
     };
     document.body.appendChild(script);
 
-
     function UpdateMetadata(score) {
-        console.log("Update");
-        document.querySelector('meta[property="og:title"]').setAttribute("content", "你的分數：");
-        // document.querySelector('meta[property="og:image"]').setAttribute("content", "TemplateData/unity-logo-light.png');
-    }
+        const element = document.querySelector('meta[property="og:title"]');
 
+        if (element) {
+            element.setAttribute('content', '你的分數：');
+            console.log("Found Element");
+        } else {
+            console.log("Not Found Element");
+        }
+    }
 
 </script>
 </body>
