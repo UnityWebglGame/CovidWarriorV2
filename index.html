@@ -9,7 +9,10 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script defer type="text/javascript">
-         const urlParams = new URLSearchParams(window.location.search);
+     
+         document.addEventListener('DOMContentLoaded', function() {
+      // 从 URL 中获取参数
+     const urlParams = new URLSearchParams(window.location.search);
          const action = urlParams.get('action');
 
         // 根据参数执行相应的操作
@@ -27,6 +30,7 @@
             console.log("Not Found Element");
         }
     } 
+    });
     </script>
 </head>
 <body>
