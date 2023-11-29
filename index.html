@@ -3,6 +3,27 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script defer type="text/javascript">
+         const urlParams = new URLSearchParams(window.location.search);
+         const action = urlParams.get('action');
+
+        // 根据参数执行相应的操作
+        if (action === 'score') {
+            console.log("score input")
+                UpdateMetadata(1)
+        }
+         function UpdateMetadata(score) {
+        const element = document.querySelector('meta[property="og:title"]');
+
+        if (element) {
+            element.setAttribute('content', '你的分數：');
+            console.log("Found Element");
+        } else {
+            console.log("Not Found Element");
+        }
+    }
+            
+    <script>
     <meta property="og:title" content="新冠戰士">
     <meta property="og:image" content="TemplateData/unity-logo-dark.png">
     <meta property="og:description" content="成為新冠戰士吧">
@@ -21,14 +42,7 @@
     <div id="unity-warning"></div>
 </div>
 <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const action = urlParams.get('action');
-
-    // 根据参数执行相应的操作
-    if (action === 'score') {
-        console.log("score input")
-        UpdateMetadata(1)
-    }
+   
 
     var container = document.querySelector("#unity-container");
     var canvas = document.querySelector("#unity-canvas");
@@ -98,16 +112,7 @@
     };
     document.body.appendChild(script);
 
-    function UpdateMetadata(score) {
-        const element = document.querySelector('meta[property="og:title"]');
-
-        if (element) {
-            element.setAttribute('content', '你的分數：');
-            console.log("Found Element");
-        } else {
-            console.log("Not Found Element");
-        }
-    }
+   
 
 </script>
 </body>
